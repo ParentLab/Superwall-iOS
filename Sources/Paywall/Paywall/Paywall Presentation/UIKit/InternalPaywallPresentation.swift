@@ -194,6 +194,14 @@ extension Paywall {
           isDebuggerLaunched: SWDebugManager.shared.isDebuggerLaunched,
           shouldIgnoreSubscriptionStatus: ignoreSubscriptionStatus
         ) {
+          onSkip?(
+            shared.presentationError(
+              domain: "SWPresentationError",
+              code: 1,
+              title: "Should not display paywall",
+              value: "Should not display paywall."
+            )
+          )
           return
         }
 
