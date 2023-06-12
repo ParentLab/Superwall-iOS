@@ -113,6 +113,14 @@ extension Paywall {
           shouldIgnoreSubscriptionStatus: ignoreSubscriptionStatus,
           presentationCondition: paywallViewController.paywallResponse.presentationCondition
         ) {
+          onSkip?(
+            shared.presentationError(
+              domain: "SWPresentationError",
+              code: 0,
+              title: "Should not display paywall",
+              value: "Should not display paywall."
+            )
+          )
           return
         }
 
